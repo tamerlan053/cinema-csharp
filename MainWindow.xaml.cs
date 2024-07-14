@@ -10,7 +10,8 @@ namespace CinemaTicketApp
             InitializeComponent();
         }
 
-        
+        private void CalculateTotal_Click(object sender, RoutedEventArgs e)
+        {
         }
     }
 }
