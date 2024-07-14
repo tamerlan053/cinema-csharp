@@ -12,6 +12,17 @@ namespace CinemaTicketApp
 
         private void CalculateTotal_Click(object sender, RoutedEventArgs e)
         {
+            decimal ticketPrice = 10.00m;
+        
+            if (int.TryParse(TicketTextBox.Text, out int numberOfTickets))
+            {
+                decimal totalCost = numberOfTickets * ticketPrice;
+                TotalTextBlock.Text = $"Total Cost: ${totalCost:F2}";
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid number of tickets.", "Input Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
