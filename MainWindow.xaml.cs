@@ -44,5 +44,10 @@ namespace CinemaTicketApp
                 default: return 10.00m;
             }
         }
+
+        private decimal GetDiscount()
+        {
+            return 0.10m;
+        }
     }
 }
