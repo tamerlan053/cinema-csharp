@@ -33,5 +33,16 @@ namespace CinemaTicketApp
             TicketTypeComboBox.Items.Add("Student - $7.00");
             TicketTypeComboBox.SelectedIndex = 0;
         }
+
+        private decimal GetTicketPrice()
+        {
+            switch (TicketTypeComboBox.SelectedIndex)
+            {
+                case 0: return 10.00m;
+                case 1: return 20.00m;
+                case 2: return 7.00m;
+                default: return 10.00m;
+            }
+        }
     }
 }
