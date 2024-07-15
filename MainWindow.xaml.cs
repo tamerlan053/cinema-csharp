@@ -24,5 +24,13 @@ namespace CinemaTicketApp
                 MessageBox.Show("Please enter a valid number of tickets.", "Input Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void InitializeTicketTypes()
+        {
+            TicketTypeComboBox.Items.Add("Regular - $10.00");
+            TicketTypeComboBox.Items.Add("VIP - $20.00");
+            TicketTypeComboBox.Items.Add("Student - $7.00");
+            TicketTypeComboBox.SelectedIndex = 0;
+        }
     }
 }
