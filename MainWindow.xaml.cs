@@ -8,6 +8,7 @@ namespace CinemaTicketApp
         public MainWindow()
         {
             InitializeComponent();
+            InitializeTicketTypes();
         }
 
         private void CalculateTotal_Click(object sender, RoutedEventArgs e)
