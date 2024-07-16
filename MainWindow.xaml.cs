@@ -49,5 +49,9 @@ namespace CinemaTicketApp
         {
             return 0.10m;
         }
+
+        private void CalculateTotal_Click(object sender, RoutedEventArgs e)
+        {
+        }
     }
 }
