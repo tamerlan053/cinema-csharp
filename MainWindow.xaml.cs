@@ -17,8 +17,15 @@ namespace CinemaTicketApp
         
             if (int.TryParse(TicketTextBox.Text, out int numberOfTickets))
             {
-                decimal totalCost = numberOfTickets * ticketPrice;
-                TotalTextBlock.Text = $"Total Cost: ${totalCost:F2}";
+                if (numberOfTickets > 0)
+                {
+                    decimal totalCost = numberOfTickets * ticketPrice * (1 - discount);
+                    TotalTextBlock.Text = $"Total Cost: ${totalCost:F2}";
+                }
+                else
+                {
+                    MessageBox.Show("Number of tickets must be greater than zero.", "Input Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
             else
             {
@@ -48,10 +55,6 @@ namespace CinemaTicketApp
         private decimal GetDiscount()
         {
             return 0.10m;
-        }
-
-        private void CalculateTotal_Click(object sender, RoutedEventArgs e)
-        {
         }
     }
 }
