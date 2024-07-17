@@ -15,6 +15,7 @@ namespace CinemaTicketApp
         {
             decimal ticketPrice = GetTicketPrice();
             decimal discount = GetDiscount();
+            string discountDetails = $"Base Discount: {discount * 100}%";
 
             if (!string.IsNullOrEmpty(CouponTextBox.Text))
             {
@@ -22,6 +23,7 @@ namespace CinemaTicketApp
                 if (couponDiscount >= 0)
                 {
                     discount += couponDiscount;
+                    discountDetails += $", Coupon Discount: {couponDiscount * 100}%";
                 }
                 else
                 {
@@ -35,7 +37,7 @@ namespace CinemaTicketApp
                 if (numberOfTickets > 0)
                 {
                     decimal totalCost = numberOfTickets * ticketPrice * (1 - discount);
-                    TotalTextBlock.Text = $"Total Cost: ${totalCost:F2}";
+                    TotalTextBlock.Text = $"Total Cost: ${totalCost:F2} ({discountDetails})";
                 }
                 else
                 {
