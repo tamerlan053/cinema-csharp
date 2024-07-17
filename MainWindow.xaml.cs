@@ -13,7 +13,8 @@ namespace CinemaTicketApp
 
         private void CalculateTotal_Click(object sender, RoutedEventArgs e)
         {
-            decimal ticketPrice = 10.00m;
+            decimal ticketPrice = GetTicketPrice();
+            decimal discount = GetDiscount();
         
             if (int.TryParse(TicketTextBox.Text, out int numberOfTickets))
             {
