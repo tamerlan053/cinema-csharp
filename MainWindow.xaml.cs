@@ -16,9 +16,18 @@ namespace CinemaTicketApp
             decimal ticketPrice = GetTicketPrice();
             decimal discount = GetDiscount();
 
-            if (CouponTextBox.Text == "DISCOUNT10")
+            if (!string.IsNullOrEmpty(CouponTextBox.Text))
             {
-                discount += 0.10m;
+                decimal couponDiscount = GetCouponDiscount(CouponTextBox.Text);
+                if (couponDiscount >= 0)
+                {
+                    discount += couponDiscount;
+                }
+                else
+                {
+                    MessageBox.Show("Invalid coupon code.", "Coupon Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
             }
         
             if (int.TryParse(TicketTextBox.Text, out int numberOfTickets))
@@ -61,6 +70,17 @@ namespace CinemaTicketApp
         private decimal GetDiscount()
         {
             return 0.10m;
+        }
+
+        private decimal GetCouponDiscount(string coupon)
+        {
+            switch (coupon.ToUpper())
+            {
+                case "DISCOUNT10": return 0.10m;
+                case "DISCOUNT15": return 0.15m;
+                case "DISCOUNT20": return 0.20m;
+                default: return -1;
+            }
         }
     }
 }
