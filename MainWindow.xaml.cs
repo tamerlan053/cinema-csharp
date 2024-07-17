@@ -15,6 +15,11 @@ namespace CinemaTicketApp
         {
             decimal ticketPrice = GetTicketPrice();
             decimal discount = GetDiscount();
+
+            if (CouponTextBox.Text == "DISCOUNT10")
+            {
+                discount += 0.10m;
+            }
         
             if (int.TryParse(TicketTextBox.Text, out int numberOfTickets))
             {
